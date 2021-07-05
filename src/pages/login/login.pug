@@ -1,14 +1,15 @@
 main.container
-  .flex-align-center
+  .layout.flex.flex_align-center.flex_justify-center
     .form-wrapper.login-form-wrapper
-      form.login-form
+      form.form.login-form
         .logo
-          img.logo__image
+          img(src="../../assets/icons/logo-icon.svg", alt="logo").logo__image
           h1.logo__title Chateo
         .form-controls
-          label(for="loginInput") Login
-          input(type="text" id="loginInput" name="login")
+          label(for="loginInput").form-controls__label Login
+          input(type="text" id="loginInput" name="login").form-controls__control
         .form-control
-          label(for="passwordInput") Password
-          input(type="password" id="passwordInput" name="password")
-        button(type="submit") Login
+          label(for="passwordInput").form-controls__label Password
+          input(type="password" id="passwordInput" name="password").form-controls__control
+        button(type="submit").form-controls__button.button.button_primary Login
+        a(href="/signup").form-controls__button.button.button_link Sign Up

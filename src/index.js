@@ -1,6 +1,7 @@
 import replaceRootContent from './utils/replaceRootContent';
 import getPagesMenuPage from './pages/pages-menu';
 import getLoginPage from './pages/login';
+import getSignUpPage from './pages/signup';
 
 import './styles/index.scss';
 
@@ -17,7 +18,8 @@ switch (pathname) {
     replaceRootContent(loginPage);
     break;
   case '/signup':
-    console.log('TODO signup page')
+    const signUpPage = getSignUpPage();
+    replaceRootContent(signUpPage);
     break;
   case '/chat':
     console.log('TODO chat page')
