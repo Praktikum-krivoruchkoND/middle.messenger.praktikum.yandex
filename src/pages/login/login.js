@@ -1,9 +1,11 @@
+import fs from 'fs';
 import pug from 'pug';
 
-import template from './login.pug';
 import parseDOMFromString from '../../utils/parseDOMFromString';
 
+const template = fs.readFileSync(__dirname + '/login.pug', 'utf-8');
+
 export default () => {
-  const htmlString = pug.render(template);
+  const htmlString = pug.render(template, { logoSrc: 'icons/logo-icon.svg' });
   return parseDOMFromString(htmlString);
 };
