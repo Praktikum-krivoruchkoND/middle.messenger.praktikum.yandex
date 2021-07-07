@@ -1,0 +1,75 @@
+@import '../utils.scss';
+@import '../constants.scss';
+
+.form-wrapper {
+  padding: toRem(64px) toRem(88px);
+  width: toRem(512px);
+  border-radius: toRem(30px);
+  background-color: $neutral-color-line;
+}
+
+.form {
+  .form-controls {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: toRem(24px);
+    &__label {
+      user-select: none;
+
+      display: flex;
+      align-items: center;
+      margin-bottom: toRem(4px);
+
+      font-family: 'Montserrat', sans-serif;
+      font-size: toRem(12px);
+      font-weight: 400;
+      line-height: toRem(20px);
+      color: $neutral-color-disabled;
+
+      span {
+        flex-shrink: 0;
+        margin: 0 toRem(16px);
+      }
+
+      &::after, &::before {
+        display: block;
+        content: '';
+        width: 100%;
+        height: toRem(1px);
+        background-color: $neutral-color-disabled;
+      }
+    }
+    &__control {
+      &.text-input {
+        width: 100%;
+        height: toRem(36px);
+        padding: toRem(6px) toRem(8px);
+
+        border: toRem(1px) solid $neutral-color-off-white;
+        border-radius: toRem(4px);
+
+        font-family: 'Montserrat', sans-serif;
+        font-size: toRem(14px);
+        font-weight: 600;
+        line-height: toRem(24px);
+
+        background-color: $neutral-color-off-white;
+      }
+      &:focus {
+        outline: none;
+        border-color: $brand-color-light;
+      }
+    }
+    &__button {
+
+    }
+    &__button-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

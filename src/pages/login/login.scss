@@ -1,0 +1,10 @@
+@import '../../styles/utils.scss';
+
+.login-form {
+  .logo {
+    margin-bottom: toRem(48px);
+  }
+  .form-controls__button-group {
+    margin-top: toRem(110px);
+  }
+}

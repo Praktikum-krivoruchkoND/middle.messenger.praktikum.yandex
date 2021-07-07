@@ -1,0 +1,69 @@
+@import '../constants.scss';
+@import '../utils.scss';
+
+body {
+  background-color: $neutral-color-off-white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.logo {
+  &__image {
+    margin: 0 auto;
+    width: 100%;
+  }
+  &__title {
+    margin: toRem(10px);
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: toRem(22px);
+    font-weight: 700;
+    line-height: toRem(27px);
+  }
+}
+
+.button {
+  user-select: none;
+  
+  height: toRem(52px);
+  width: fit-content;
+  padding: toRem(12px) toRem(48px);
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: toRem(16px);
+  font-weight: 600;
+  line-height: toRem(28px);
+  text-align: center;
+
+  &:focus {
+    outline: none;
+  }
+
+  &_primary {
+    background-color: $brand-color-default;
+    border: toRem(1px) solid $brand-color-default;
+    border-radius: toRem(30px);
+    
+    color: $neutral-color-off-white;
+    &:focus {
+      border-color: $brand-color-light;
+      background-color: darken($brand-color-default, 5%) ;
+    }
+    &:active {
+      background-color: darken($brand-color-default, 10%) ;
+    }
+  }
+
+  &_link {
+    color: $brand-color-default;
+
+    &:focus {
+      color: $brand-color-light;
+    }
+    &:active {
+      color: darken($brand-color-light, 10%) ;
+    }
+  }
+}

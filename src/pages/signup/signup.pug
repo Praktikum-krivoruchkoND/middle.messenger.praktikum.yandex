@@ -1,27 +1,33 @@
-main.container
-  .layout.flex.flex_align-center.flex_justify-center
-    .form-wrapper.login-form-wrapper
-      form.form.login-form
-        .logo
-          img(src=logoSrc, alt="logo").logo__image
-          h1.logo__title Chateo
-        .form-controls
-          label(for="firstNameInput").form-controls__label First Name
-          input(type="text" id="firstNameInput" name="firstName").form-controls__control
-        .form-controls
-          label(for="lastNameInput").form-controls__label Last Name
-          input(type="text" id="lastNameInput" name="lastName").form-controls__control
-        .form-controls
-          label(for="emailInput").form-controls__label Email
-          input(type="text" id="emailInput" name="email").form-controls__control
-        .form-controls
-          label(for="phoneNumberInput").form-controls__label Phone Number
-          input(type="text" id="phoneNumberInput" name="phoneNumber").form-controls__control
-        .form-controls
-          label(for="loginInput").form-controls__label Login
-          input(type="text" id="loginInput" name="login").form-controls__control
-        .form-controls
-          label(for="passwordInput").form-controls__label Password
-          input(type="text" id="passwordInput" name="password").form-controls__control
+main.container._full-height._flex._align-center._justify-center
+  .form-wrapper.signup-form-wrapper
+    form.form.signup-form
+      .logo
+        img(src=logoSrc, alt="logo", width="32px", height="32px").logo__image
+        h1.logo__title Chateo
+      .form-controls
+        label(for="firstNameInput").form-controls__label 
+          span First Name
+        input(type="text" id="firstNameInput" name="firstName").form-controls__control.text-input
+      .form-controls
+        label(for="lastNameInput").form-controls__label 
+          span Last Name
+        input(type="text" id="lastNameInput" name="lastName").form-controls__control.text-input
+      .form-controls
+        label(for="emailInput").form-controls__label 
+          span Email
+        input(type="text" id="emailInput" name="email").form-controls__control.text-input
+      .form-controls
+        label(for="phoneNumberInput").form-controls__label 
+          span Phone Number
+        input(type="text" id="phoneNumberInput" name="phoneNumber").form-controls__control.text-input
+      .form-controls
+        label(for="loginInput").form-controls__label 
+          span Login
+        input(type="text" id="loginInput" name="login").form-controls__control.text-input
+      .form-controls
+        label(for="passwordInput").form-controls__label 
+          span Password
+        input(type="text" id="passwordInput" name="password").form-controls__control.text-input
+      .form-controls__button-group
         button(type="submit").form-controls__button.button.button_primary Sign Up
         a(href="/login").form-controls__button.button.button_link Log In
