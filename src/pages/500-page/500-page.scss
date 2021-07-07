@@ -1,0 +1,12 @@
+@import '../../styles/utils.scss';
+
+.error-info {
+  &__status {
+    margin: toRem(16px) 0 toRem(32px);
+  }
+  .button-group {
+    .button {
+      padding: toRem(12px) toRem(8px);
+    }
+  }
+}

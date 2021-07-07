@@ -1,0 +1,31 @@
+@import '../../styles/utils.scss';
+
+.error-info {
+  text-align: center;
+  margin-right: toRem(128px);
+  &__title {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: toRem(32px);
+    font-weight: 700;
+    line-height: toRem(39px);
+  }
+  &__status {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: toRem(24px);
+    font-weight: 700;
+    line-height: toRem(39px);
+  }
+  &__message {
+    margin: 0;
+    margin-bottom: toRem(16px);
+    font-family: 'Montserrat', sans-serif;
+    font-size: toRem(24px);
+    font-weight: 700;
+    line-height: toRem(39px);
+  }
+  &__image {
+
+  }
+}

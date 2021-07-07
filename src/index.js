@@ -2,6 +2,8 @@ import replaceRootContent from './utils/replaceRootContent';
 import getPagesMenuPage from './pages/pages-menu';
 import getLoginPage from './pages/login';
 import getSignUpPage from './pages/signup';
+import get404Page from './pages/404-page';
+import get500Page from './pages/500-page';
 
 import './styles/index.scss';
 
@@ -28,12 +30,15 @@ switch (pathname) {
     console.log('TODO profile page')
     break;
   case '/404':
-    console.log('TODO 404 page')
+    const _404Page = get404Page();
+    replaceRootContent(_404Page);
     break;
   case '/500':
-    console.log('TODO 500 page')
+    const _500Page = get500Page();
+    replaceRootContent(_500Page);
     break;
   default:
+    replaceRootContent(get404Page());
     break;
 }
 

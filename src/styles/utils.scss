@@ -12,6 +12,18 @@
   justify-content: center;
 }
 
+._justify-between {
+  justify-content: space-between;
+}
+
+._direction-column {
+  flex-direction: column;
+}
+
 ._full-height {
   height: 100vh;
+}
+
+._h100 {
+  height: 100%;
 }
