@@ -7,7 +7,7 @@
     "clean-dist": "rm -rf dist/*",
     "parcel-dev": "npm run clean-dist && parcel index.html",
     "parcel-build": "npm run clean-dist && parcel build index.html",
-    "start": "npm run clean-dist node ./server.js"
+    "start": "npm run clean-dist &&  node ./server.js"
   },
   "repository": {
     "type": "git",
