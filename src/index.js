@@ -5,6 +5,7 @@ import getSignUpPage from './pages/signup';
 import get404Page from './pages/404-page';
 import get500Page from './pages/500-page';
 import getProfilePage from './pages/profile';
+import getChatPage from './pages/chat';
 
 import './styles/index.scss';
 
@@ -25,7 +26,8 @@ switch (pathname) {
     replaceRootContent(signUpPage);
     break;
   case '/chat':
-    console.log('TODO chat page')
+    const chatPage = getChatPage();
+    replaceRootContent(chatPage);
     break;
   case '/profile':
     const profilePage = getProfilePage();
