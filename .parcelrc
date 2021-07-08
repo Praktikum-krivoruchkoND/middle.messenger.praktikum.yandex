@@ -1,5 +1,6 @@
 {
-  "exclude": [
-    "./node_modules/babel-walk"
-  ]
+  "extends": ["@parcel/config-default"],
+  "transformers": {
+    "*.pug": ["parcel-transformer-pug-precompile"]
+  }
 }

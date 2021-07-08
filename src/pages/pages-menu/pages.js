@@ -1,11 +1,7 @@
-import fs from 'fs';
-import pug from 'pug';
-
 import parseDOMFromString from '../../utils/parseDOMFromString';
-
-const template = fs.readFileSync(__dirname + '/pages.pug', 'utf-8');
+import compileTemplate from './pages.pug';
 
 export default () => {
-  const htmlString = pug.render(template);
+  const htmlString = compileTemplate();
   return parseDOMFromString(htmlString);
 };
