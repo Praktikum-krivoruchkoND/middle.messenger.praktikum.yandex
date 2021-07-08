@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "clean-dist": "rm -rf ./dist",
-    "parcel-dev": "npm run clean-dist && parcel index.html",
+    "parcel-dev": "npm run clean-dist && parcel index.html --port 3000",
     "parcel-build": "npm run clean-dist && parcel build index.html && cp _redirects ./dist",
-    "start": "npm run clean-dist &&  node ./server.js"
+    "start": "npm run clean-dist && npm run parcel-dev",
+    "start-node": "npm run clean-dist && node ./server.js"
   },
   "repository": {
     "type": "git",

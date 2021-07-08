@@ -9,8 +9,7 @@ import getChatPage from './pages/chat';
 
 import './styles/index.scss';
 
-const url = new URL(window.location.href)
-const { pathname } = url;
+const { pathname } = window.location;
 
 switch (pathname) {
   case '/':
@@ -45,5 +44,3 @@ switch (pathname) {
     replaceRootContent(get404Page());
     break;
 }
-
-
