@@ -12,6 +12,15 @@
       .form-controls__button-group {
         margin-top: toRem(32px);
       }
+      &__title {
+        margin: 0;
+        margin-bottom: toRem(32px);
+        font-family: 'Montserrat', sans-serif;
+        font-size: toRem(24px);
+        font-weight: 700;
+        line-height: toRem(29px);
+        text-align: center;
+      }
     }
   }
   .profile-photo {
