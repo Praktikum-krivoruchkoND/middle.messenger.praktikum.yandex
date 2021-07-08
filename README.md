@@ -24,4 +24,4 @@
 ## Полезные ссылки
 - Макеты и прототипы: https://www.figma.com/file/SKgS69xThGR7KqhBW1vsfk/?node-id=2%3A7935
 - Развернутый проект: https://musing-cray-f98793.netlify.app  
-- PR sprint_1: 
+- PR sprint_1: https://github.com/Praktikum-krivoruchkoND/middle.messenger.praktikum.yandex/pull/1
