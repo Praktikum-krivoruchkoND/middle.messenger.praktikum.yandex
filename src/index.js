@@ -4,6 +4,7 @@ import getLoginPage from './pages/login';
 import getSignUpPage from './pages/signup';
 import get404Page from './pages/404-page';
 import get500Page from './pages/500-page';
+import getProfilePage from './pages/profile';
 
 import './styles/index.scss';
 
@@ -27,7 +28,8 @@ switch (pathname) {
     console.log('TODO chat page')
     break;
   case '/profile':
-    console.log('TODO profile page')
+    const profilePage = getProfilePage();
+    replaceRootContent(profilePage);
     break;
   case '/404':
     const _404Page = get404Page();

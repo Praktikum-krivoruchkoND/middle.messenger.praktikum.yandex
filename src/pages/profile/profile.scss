@@ -1,0 +1,35 @@
+@import '../../styles/utils.scss';
+@import '../../styles/constants.scss';
+
+.profile-container {
+  .form-wrapper.profile-form-wrapper {
+    padding-top: toRem(32px);
+    padding-bottom: toRem(32px);
+    .profile-form {
+      .logo {
+        margin-bottom: toRem(32px);
+      }
+      .form-controls__button-group {
+        margin-top: toRem(32px);
+      }
+    }
+  }
+  .profile-photo {
+    position: relative;
+    width: toRem(512px);
+    height: toRem(512px);
+    padding: toRem(36px);
+    &__edit-button {
+      cursor: pointer;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: toRem(64px);
+      height: toRem(64px);
+    }
+    &__image {
+      border-radius: toRem(16px);
+      background-color: $brand-color-background;
+    }
+  }
+}
