@@ -1,0 +1,15 @@
+@import '../../styles/utils.scss';
+
+.form-wrapper.signup-form-wrapper {
+  padding-top: toRem(32px);
+  padding-bottom: toRem(32px);
+
+  .signup-form {
+    .logo {
+      margin-bottom: toRem(32px);
+    }
+    .form-controls__button-group {
+      margin-top: toRem(32px);
+    }
+  }
+}

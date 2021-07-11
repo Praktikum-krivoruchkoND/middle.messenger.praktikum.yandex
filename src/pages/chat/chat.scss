@@ -1,0 +1,41 @@
+@import '../../styles/utils.scss';
+@import '../../styles/constants.scss';
+
+.chat {
+  &__chat-sider {
+    height: 100vh;
+    background-color: $neutral-color-line;
+    overflow: scroll;
+    .chat__chats-list {
+      margin: 0;
+      padding: 0;
+      &__item {
+        width: 100%;
+        height: toRem(56px);
+        margin-top: toRem(8px);
+        background-color: $neutral-color-off-white;
+        border-radius: toRem(16px);
+      }
+    }
+  }
+  &__chat-content {
+    .chat {
+      &__chat-header {
+        height: toRem(80px);
+        background-color: $neutral-color-line;
+        border-left: 1px solid $neutral-color-off-white;
+      }
+      &__chat-messages {
+        height: calc(100vh - 80px);
+        overflow: scroll;
+        &__message {
+          margin-top: toRem(8px);
+          width: 75%;
+          height: toRem(64px);
+          background-color: $brand-color-dark-mode;
+          border-radius: toRem(16px);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+main.container._h-auto._min-h-100vh._flex._align-center._justify-center
+  .form-wrapper.login-form-wrapper
+    form.form.login-form
+      .logo
+        img(src=logoSrc, alt="logo", width="32px", height="32px").logo__image
+        h1.logo__title Chateo
+      .form-controls
+        label(for="loginInput").form-controls__label 
+          span Login
+        input(type="text" id="loginInput" name="login").form-controls__control.text-input
+      .form-control
+        label(for="passwordInput").form-controls__label 
+          span Password
+        input(type="password" id="passwordInput" name="password").form-controls__control.text-input
+      .form-controls__button-group
+        button(type="submit").form-controls__button.button.button_primary Log In
+        a(href="/signup").form-controls__button.button.button_link Sign Up
