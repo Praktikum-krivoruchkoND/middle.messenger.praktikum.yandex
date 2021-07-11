@@ -5,7 +5,7 @@
   "scripts": {
     "clean-dist": "rm -rf ./dist",
     "parcel-dev": "npm run clean-dist && parcel index.html --port 3000",
-    "parcel-build": "npm run clean-dist && parcel build index.html --no-scope-hoist --dist-dir dist && cp _redirects ./dist",
+    "parcel-build": "npm run clean-dist && parcel build index.html --dist-dir dist && cp _redirects ./dist",
     "start": "parcel index.html --port 3000"
   },
   "repository": {
