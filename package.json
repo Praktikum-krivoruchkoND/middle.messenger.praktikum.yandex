@@ -6,9 +6,7 @@
     "clean-dist": "rm -rf ./dist",
     "parcel-dev": "npm run clean-dist && parcel index.html --port 3000",
     "parcel-build": "npm run clean-dist && parcel build index.html --no-scope-hoist --dist-dir dist && cp _redirects ./dist",
-    "start-parcel": "npm run clean-dist && parcel serve index.html --port 3000",
-    "start-node": "npm run parcel-build && node ./server.js",
-    "start": "npm run start-node"
+    "start": "parcel index.html --port 3000"
   },
   "repository": {
     "type": "git",
