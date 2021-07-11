@@ -6,7 +6,8 @@
     "clean-dist": "rm -rf ./dist",
     "parcel-dev": "npm run clean-dist && parcel index.html --port 3000",
     "parcel-build": "npm run clean-dist && parcel build index.html --dist-dir dist && cp _redirects ./dist",
-    "start": "parcel index.html --port 3000"
+    "start": "parcel index.html --port 3000",
+    "start-node": "node ./server.js"
   },
   "repository": {
     "type": "git",
@@ -27,8 +28,5 @@
     "parcel-transformer-pug-precompile": "^1.0.6",
     "pug": "^3.0.2",
     "sass": "^1.35.1"
-  },
-  "engines": {
-    "node": ">=0.14"
   }
 }
