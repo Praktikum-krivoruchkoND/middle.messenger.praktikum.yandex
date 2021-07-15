@@ -52,7 +52,8 @@ switch (pathname) {
     break;
   }
 
-  default:
+  default: {
     replaceRootContent(get404Page());
     break;
+  }
 }
