@@ -5,7 +5,7 @@ import userIcon from 'url:../../assets/icons/user-icon.svg';
 import editIcon from 'url:../../assets/icons/edit-icon.svg';
 import './profile.scss';
 
-export default () => {
+export default (): ChildNode => {
   const htmlString = compileTemplate({ userPhoto: userIcon, editIcon });
   return parseDOMFromString(htmlString);
 };

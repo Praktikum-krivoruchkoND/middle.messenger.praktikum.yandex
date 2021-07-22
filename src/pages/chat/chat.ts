@@ -3,7 +3,7 @@ import compileTemplate from './chat.pug';
 
 import './chat.scss';
 
-export default () => {
+export default (): ChildNode => {
   const htmlString = compileTemplate();
   return parseDOMFromString(htmlString);
 };
