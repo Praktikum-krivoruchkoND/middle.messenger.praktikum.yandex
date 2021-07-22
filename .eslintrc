@@ -11,6 +11,7 @@
     "max-len": [2, 100],
     "indent": [2, 2, { "SwitchCase": 1 }],
     "object-curly-spacing": [2, "always"],
+    "arrow-parens": ["warn", "always"],
     "no-unused-vars": "off",
     "default-param-last": "off",
     "@typescript-eslint/no-unused-vars": ["error"]
