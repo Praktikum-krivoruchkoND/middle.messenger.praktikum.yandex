@@ -1,11 +1,19 @@
 {
-  "extends": "xo",
+  "extends": [
+    "xo",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "rules": {
     "max-len": [2, 100],
     "indent": [2, 2, { "SwitchCase": 1 }],
-    "object-curly-spacing": [2, "always"]
+    "object-curly-spacing": [2, "always"],
+    "no-unused-vars": "off",
+    "default-param-last": "off",
+    "@typescript-eslint/no-unused-vars": ["error"]
   },
   "overrides": [
     {
