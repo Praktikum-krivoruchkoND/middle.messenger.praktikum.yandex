@@ -14,7 +14,8 @@
     "arrow-parens": ["warn", "always"],
     "no-unused-vars": "off",
     "default-param-last": "off",
-    "@typescript-eslint/no-unused-vars": ["error"]
+    "capitalized-comments": "off",
+    "@typescript-eslint/no-unused-vars": ["warn"]
   },
   "overrides": [
     {
