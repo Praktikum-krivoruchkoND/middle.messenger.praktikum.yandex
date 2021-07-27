@@ -11,7 +11,7 @@ type Events = {
     [key: string]: {tagEvent: string, callback: ((...args: any[]) => unknown)}
 }
 
-type Props = {
+export type Props = {
     children?: { [key: string]: HTMLElement };
     tagName?: string;
     className?: string;

@@ -6,7 +6,7 @@ export enum ERRORS {
   PASSWORD_CONFIRM = 'Passwords must match',
 }
 
-export const validation = (value: string, type: string): { [key: string]: string } => {
+export default (value: string, type: string): { [key: string]: string } => {
   switch (type) {
     case 'password':
       return passwordVerification(value);
