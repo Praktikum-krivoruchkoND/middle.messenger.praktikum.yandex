@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "pre-run": "eslint \"**/*.{ts,tsx}\" && tsc --noEmit && rm -rf ./dist",
-    "parcel-dev": "npm run pre-run && parcel index.html --port 3001",
+    "parcel-dev": "npm run pre-run && parcel index.html --port 3000",
     "parcel-build": "npm run pre-run && parcel build index.html --dist-dir dist && cp _redirects ./dist",
     "start": "parcel index.html --port 3000",
     "start-node": "node ./server.ts"

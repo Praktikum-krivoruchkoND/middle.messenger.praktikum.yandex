@@ -1,5 +1,6 @@
-export default (pugRenderResult: string): ChildNode => {
-  const parser = new DOMParser();
+const parser = new DOMParser();
+export default (pugRenderResult: string): HTMLElement => {
   const { body } = parser.parseFromString(pugRenderResult, 'text/html');
-  return body.firstChild ? body.firstChild : body;
+  const element = body.firstElementChild ? body.firstElementChild : body;
+  return element as HTMLElement;
 };
