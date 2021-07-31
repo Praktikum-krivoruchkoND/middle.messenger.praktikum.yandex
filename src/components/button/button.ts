@@ -8,7 +8,7 @@ type ButtonProps = {
 
 export default class Button extends Block {
   constructor(props: ButtonProps) {
-    super({ ...props });
+    super(props, { debug: true, withInternalID: true });
   }
 
   render(): string {

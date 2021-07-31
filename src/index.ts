@@ -7,6 +7,8 @@ import get500Page from './pages/500-page';
 import getProfilePage from './pages/profile';
 import getChatPage from './pages/chat';
 
+import Button from './components/button';
+
 import './styles/index.scss';
 
 const { pathname } = window.location;
@@ -57,3 +59,20 @@ switch (pathname) {
     break;
   }
 }
+
+const button = new Button({
+  title: 'My Button',
+  type: 'sumbit',
+  events: { click: () => console.log('hello') },
+});
+const root = document.querySelector('#root');
+if (root) {
+  root.appendChild(button.getContent());
+}
+
+setTimeout(() => button.setProps({
+  title: 'My New Button',
+  // type: 'button',
+  // events: { click: () => console.log('bye') },
+}), 1000);
+
