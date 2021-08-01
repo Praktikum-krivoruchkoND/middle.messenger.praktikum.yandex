@@ -14,13 +14,11 @@ export type FormItemProps = {
 
 export default class FormItem extends Block {
   constructor(props: FormItemProps) {
-    console.log('FormItem Block constructor call', { props });
-    super(props, { debug: true, withInternalID: true });
+    super(props, { debug: false, withInternalID: true });
   }
 
   render(): HTMLElement {
     const { name, error, label, placeholder, type, validate } = this.props as FormItemProps;
-    console.log(this.props);
     const labelEl = new Label({ name, label });
     const errorEl = new ValidationError({ label: error });
     errorEl.hide();

@@ -7,8 +7,6 @@ import get500Page from './pages/500-page';
 import getProfilePage from './pages/profile';
 import getChatPage from './pages/chat';
 
-import FormItem from './components/formItem';
-import containsSpecialSymbols from './utils/containsSpecialSymbols';
 import './styles/index.scss';
 
 const { pathname } = window.location;
@@ -58,28 +56,4 @@ switch (pathname) {
     replaceRootContent(get404Page());
     break;
   }
-}
-
-const loginInput = new FormItem({
-  name: 'login',
-  label: 'Login',
-  placeholder: 'Your login',
-  error: 'Wrong login',
-  type: 'text',
-  validate: (value: string) => value.length > 4 && !containsSpecialSymbols(value),
-});
-
-const passwordInput = new FormItem({
-  name: 'password',
-  label: 'Password',
-  placeholder: 'Your password',
-  error: 'Wrong password',
-  type: 'password',
-  validate: (value: string) => value.length > 4 && !containsSpecialSymbols(value),
-});
-
-const root = document.querySelector('#root');
-if (root) {
-  root.appendChild(loginInput.getContent());
-  root.appendChild(passwordInput.getContent());
 }

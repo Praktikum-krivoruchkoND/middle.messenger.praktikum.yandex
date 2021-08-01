@@ -7,8 +7,7 @@ export type ErrorProps = {
 
 export default class Error extends Block {
   constructor(props: ErrorProps) {
-    console.log('Error Block constructor call', { props });
-    super(props, { debug: true, withInternalID: true });
+    super(props, { debug: false, withInternalID: true });
   }
 
   render(): string {

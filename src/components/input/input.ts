@@ -9,8 +9,7 @@ export type InputProps = {
 
 export default class Input extends Block {
   constructor(props: InputProps) {
-    console.log('Input Block constructor call', { props });
-    super(props, { debug: true, withInternalID: true });
+    super(props, { debug: false, withInternalID: true });
   }
 
   render(): string {

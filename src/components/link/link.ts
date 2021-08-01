@@ -1,18 +1,18 @@
 import Block, { Props } from '../../utils/block';
-import getTemplate from './button.pug';
+import getTemplate from './link.pug';
 
-type ButtonProps = {
+type LinkProps = {
     title: string;
-    type?: string;
+    href: string;
 } & Props;
 
 export default class Button extends Block {
-  constructor(props: ButtonProps) {
+  constructor(props: LinkProps) {
     super(props, { debug: false, withInternalID: true });
   }
 
   render(): string {
-    const { title, type } = this.props;
-    return getTemplate({ title, type });
+    const { title, href } = this.props;
+    return getTemplate({ title, href });
   }
 }

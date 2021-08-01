@@ -146,7 +146,9 @@ export default abstract class Block {
       this._element = HTMLElement;
       this._addEvents();
     } else {
+      this._removeEvents();
       this._element = block;
+      this._addEvents();
     }
 
     this._container.innerHTML = '';
@@ -207,12 +209,11 @@ export default abstract class Block {
 
     return new Proxy(props, {
       get(target, prop: string) {
+        const value = target[prop];
         if (allowDebug) {
-          debug('Proxy get', { target, prop });
+          debug('Proxy get', { target, prop, value });
         }
 
-        const value = target[prop];
-        console.log(value);
         return typeof value === 'function' ? value.bind(target) : value;
       },
       set(target, prop: string, value) {

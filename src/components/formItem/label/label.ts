@@ -8,8 +8,7 @@ export type LabelProps = {
 
 export default class Label extends Block {
   constructor(props: LabelProps) {
-    console.log('Label Block constructor call', { props });
-    super(props, { debug: true, withInternalID: true });
+    super(props, { debug: false, withInternalID: true });
   }
 
   render(): string {
