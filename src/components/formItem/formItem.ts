@@ -13,8 +13,18 @@ export type FormItemProps = {
 } & Props;
 
 export default class FormItem extends Block {
+  private currValue: string;
+  private isValid: boolean;
+
   constructor(props: FormItemProps) {
     super(props, { debug: false, withInternalID: true });
+    this.currValue = '';
+    this.isValid = true;
+  }
+
+  validate(): void {
+    const { validate } = this.props as FormItemProps;
+    this.isValid = validate(this.currValue);
   }
 
   render(): HTMLElement {
@@ -29,6 +39,7 @@ export default class FormItem extends Block {
       events: {
         input: (e) => {
           const target = e.target as HTMLInputElement;
+          this.currValue = target.value;
           console.log(target.value);
         },
         blur: (e) => {
@@ -48,6 +59,7 @@ export default class FormItem extends Block {
     });
 
     const container = document.createElement('div');
+    container.classList.add('form-controls');
     container.appendChild(labelEl.getContent());
     container.appendChild(inputEl.getContent());
     container.appendChild(errorEl.getContent());

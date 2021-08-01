@@ -10,7 +10,7 @@ enum EVENTS {
 }
 
 export type Props = {
-  className?: string,
+  classNames?: string[],
   events?: { [key: string]: (e: Event, ...args: any[]) => void },
   [key: string]: unknown,
 }
@@ -69,6 +69,11 @@ export default abstract class Block {
     }
 
     this._container = document.createElement('div');
+    if (this._meta.props?.classNames) {
+      this._meta.props.classNames.forEach((className: string) => {
+        this._container.classList.add(className);
+      });
+    }
   }
 
   private init() {
