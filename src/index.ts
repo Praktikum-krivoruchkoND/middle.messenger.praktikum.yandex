@@ -7,8 +7,8 @@ import get500Page from './pages/500-page';
 import getProfilePage from './pages/profile';
 import getChatPage from './pages/chat';
 
-import Button from './components/button';
-
+import FormItem from './components/formItem';
+import containsSpecialSymbols from './utils/containsSpecialSymbols';
 import './styles/index.scss';
 
 const { pathname } = window.location;
@@ -60,19 +60,26 @@ switch (pathname) {
   }
 }
 
-const button = new Button({
-  title: 'My Button',
-  type: 'sumbit',
-  events: { click: () => console.log('hello') },
+const loginInput = new FormItem({
+  name: 'login',
+  label: 'Login',
+  placeholder: 'Your login',
+  error: 'Wrong login',
+  type: 'text',
+  validate: (value: string) => value.length > 4 && !containsSpecialSymbols(value),
 });
+
+const passwordInput = new FormItem({
+  name: 'password',
+  label: 'Password',
+  placeholder: 'Your password',
+  error: 'Wrong password',
+  type: 'password',
+  validate: (value: string) => value.length > 4 && !containsSpecialSymbols(value),
+});
+
 const root = document.querySelector('#root');
 if (root) {
-  root.appendChild(button.getContent());
+  root.appendChild(loginInput.getContent());
+  root.appendChild(passwordInput.getContent());
 }
-
-setTimeout(() => button.setProps({
-  title: 'My New Button',
-  // type: 'button',
-  // events: { click: () => console.log('bye') },
-}), 1000);
-

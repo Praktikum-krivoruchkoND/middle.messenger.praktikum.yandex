@@ -10,6 +10,7 @@ enum EVENTS {
 }
 
 export type Props = {
+  rootTag: string;
   className?: string,
   events?: { [key: string]: (e: Event, ...args: any[]) => void },
   [key: string]: unknown,
@@ -21,15 +22,17 @@ export type Settings = {
 }
 
 export default abstract class Block {
-  private _element: HTMLElement;
-  private _container: HTMLElement;
-  private _meta: { props?: Props } & Settings;
+  private _element: Element;
+  // private _template: HTMLTemplateElement;
+  // _fragment: DocumentFragment;
+  private _meta: { tagName: string, props?: Props } & Settings;
   private _id: string;
   private eventBus: () => EventBus;
   props: Props;
 
-  constructor(props: Props = {}, settings: Settings = {}) {
+  constructor(props: Props = { rootTag: 'div' }, settings: Settings = {}) {
     this._meta = {
+      tagName: 'template',
       props,
       withInternalID: settings.withInternalID,
       debug: settings.debug,
@@ -68,7 +71,7 @@ export default abstract class Block {
       this.debug('_createResources');
     }
 
-    this._container = document.createElement('div');
+    // this._template = this._createDocumentElement();
   }
 
   private init() {
@@ -132,30 +135,28 @@ export default abstract class Block {
 
   _render(): void {
     if (this._meta.debug) {
-      this.debug('_render');
+      this.debug('!!! _render');
     }
 
-    const block = this.render();
-    if (typeof block === 'string') {
-      const HTMLElement = parseDOMFromString(block);
-      if (this._meta.withInternalID) {
-        HTMLElement.setAttribute('data-id', this._id);
-      }
-
-      this._removeEvents();
-      this._element = HTMLElement;
-      this._addEvents();
-    } else {
-      this._element = block;
+    const HTMLString = this.render();
+    const HTMLElement = parseDOMFromString(HTMLString);
+    if (this._meta.withInternalID) {
+      HTMLElement.setAttribute('data-id', this._id);
     }
 
-    this._container.innerHTML = '';
-    this._container.appendChild(this._element);
-    if (this._meta.debug) {
-      this.debug('_render results');
-      console.log(this._element);
-      console.log(this._container);
-    }
+    // if (this._element) {
+    //   this._removeEvents();
+    //   this._element = HTMLElement;
+    //   this._addEvents();
+    // } else {
+    //   this._template.innerHTML = '';
+    //   this._template.appendChild(HTMLElement);
+    // }
+    this._removeEvents();
+    this._element = HTMLElement;
+    this._addEvents();
+
+    console.log(HTMLElement, this._element);
   }
 
   _addEvents(): void {
@@ -186,14 +187,21 @@ export default abstract class Block {
     }
   }
 
-  abstract render(): string | HTMLElement
+  abstract render(): string
 
   getContent(): Element {
     if (this._meta.debug) {
-      this.debug('getContent', this._container);
+      this.debug('getContent', this._element);
     }
 
-    return this._container;
+    // const { firstElementChild } = this._template;
+    // if (firstElementChild) {
+    //   this._element = firstElementChild;
+    //   return firstElementChild;
+    // }
+
+    // throw new Error('Can not get content');
+    return this._element;
   }
 
   _makePropsProxy(props: Props): Props {
@@ -212,7 +220,6 @@ export default abstract class Block {
         }
 
         const value = target[prop];
-        console.log(value);
         return typeof value === 'function' ? value.bind(target) : value;
       },
       set(target, prop: string, value) {
@@ -234,11 +241,16 @@ export default abstract class Block {
     });
   }
 
-  show(): void {
-    this._container.style.display = 'block';
+  _createDocumentElement(): HTMLTemplateElement {
+    const template = document.createElement('template');
+    return template;
   }
 
-  hide(): void {
-    this._container.style.display = 'none';
-  }
+  // show(): void {
+  //   this.getContent().style.display = 'block';
+  // }
+
+  // hide(): void {
+  //   this.getContent().style.display = 'none';
+  // }
 }
