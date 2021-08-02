@@ -8,7 +8,10 @@ type LinkProps = {
 
 export default class Button extends Block {
   constructor(props: LinkProps) {
-    super(props, { debug: false, withInternalID: true });
+    super(
+      { ...props, classNames: ['_m-top-16'] },
+      { debug: false, withInternalID: true },
+    );
   }
 
   render(): string {

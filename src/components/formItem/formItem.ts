@@ -45,21 +45,18 @@ export default class FormItem extends Block {
         input: (e) => {
           const target = e.target as HTMLInputElement;
           this.currValue = target.value;
-          console.log(target.value);
         },
         blur: (e) => {
           const target = e.target as HTMLInputElement;
-          console.log(target.value);
           if (validate(target.value)) {
             this.errorEl.hide();
           } else {
             this.errorEl.show();
           }
         },
-        focus: (e) => {
-          const target = e.target as HTMLInputElement;
-          console.log(target.value);
-        },
+        // focus: (e) => {
+        //   const target = e.target as HTMLInputElement;
+        // },
       },
     });
 
