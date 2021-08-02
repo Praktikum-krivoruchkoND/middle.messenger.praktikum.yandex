@@ -68,12 +68,12 @@ const passwordInput = new FormItem({
 });
 
 const submitButton = new Button({
-  title: 'Sign In',
+  title: 'Sign Up',
   type: 'submit',
 });
 
 const signupLink = new Link({
-  title: 'Log Up',
+  title: 'Log In',
   href: '/login',
 });
 
