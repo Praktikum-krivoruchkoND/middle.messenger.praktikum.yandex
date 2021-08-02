@@ -14,25 +14,30 @@ export type FormItemProps = {
 
 export default class FormItem extends Block {
   private currValue: string;
-  private isValid: boolean;
+  private labelEl: Label;
+  private errorEl: ValidationError;
+  private inputEl: Input;
 
   constructor(props: FormItemProps) {
     super(props, { debug: false, withInternalID: true });
     this.currValue = '';
-    this.isValid = true;
   }
 
   validate(): void {
     const { validate } = this.props as FormItemProps;
-    this.isValid = validate(this.currValue);
+    if (validate(this.currValue)) {
+      this.errorEl.hide();
+    } else {
+      this.errorEl.show();
+    }
   }
 
   render(): HTMLElement {
     const { name, error, label, placeholder, type, validate } = this.props as FormItemProps;
-    const labelEl = new Label({ name, label });
-    const errorEl = new ValidationError({ label: error });
-    errorEl.hide();
-    const inputEl = new Input({
+    this.labelEl = new Label({ name, label });
+    this.errorEl = new ValidationError({ label: error });
+    this.errorEl.hide();
+    this.inputEl = new Input({
       name,
       placeholder,
       type,
@@ -46,9 +51,9 @@ export default class FormItem extends Block {
           const target = e.target as HTMLInputElement;
           console.log(target.value);
           if (validate(target.value)) {
-            errorEl.hide();
+            this.errorEl.hide();
           } else {
-            errorEl.show();
+            this.errorEl.show();
           }
         },
         focus: (e) => {
@@ -60,9 +65,9 @@ export default class FormItem extends Block {
 
     const container = document.createElement('div');
     container.classList.add('form-controls');
-    container.appendChild(labelEl.getContent());
-    container.appendChild(inputEl.getContent());
-    container.appendChild(errorEl.getContent());
+    container.appendChild(this.labelEl.getContent());
+    container.appendChild(this.inputEl.getContent());
+    container.appendChild(this.errorEl.getContent());
     return container;
   }
 }
