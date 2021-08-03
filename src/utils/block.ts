@@ -131,7 +131,6 @@ export default abstract class Block {
       return;
     }
 
-    // ? what does it do
     Object.assign(this.props, nextProps);
   };
 
@@ -208,31 +207,27 @@ export default abstract class Block {
       this.debug('_makePropsProxy', { props });
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
-    const self = this;
-    const { debug, _meta: { debug: allowDebug } } = self;
-
     return new Proxy(props, {
-      get(target, prop: string) {
+      get: (target, prop: string) => {
         const value = target[prop];
-        if (allowDebug) {
-          debug('Proxy get', { target, prop, value });
+        if (this._meta.debug) {
+          this.debug('Proxy get', { target, prop, value });
         }
 
         return typeof value === 'function' ? value.bind(target) : value;
       },
-      set(target, prop: string, value) {
-        if (allowDebug) {
-          debug('Proxy set', { target, prop, value });
+      set: (target, prop: string, value) => {
+        if (this._meta.debug) {
+          this.debug('Proxy set', { target, prop, value });
         }
 
         target[prop] = value;
-        self.eventBus().emit(EVENTS.FLOW_CDU, { ...target }, { ...target, [prop]: value });
+        this.eventBus().emit(EVENTS.FLOW_CDU, { ...target }, { ...target, [prop]: value });
         return true;
       },
-      deleteProperty(target, prop: string) {
-        if (allowDebug) {
-          debug('Proxy deleteProperty', { target, prop });
+      deleteProperty: (target, prop: string) => {
+        if (this._meta.debug) {
+          this.debug('Proxy deleteProperty', { target, prop });
         }
 
         throw new Error('Нет доступа');

@@ -30,12 +30,14 @@ switch (pathname) {
     break;
   }
 
-  case '/chat': {const chatPage = getChatPage();
+  case '/chat': {
+    const chatPage = getChatPage();
     replaceRootContent(chatPage);
     break;
   }
 
-  case '/profile': {const profilePage = getProfilePage();
+  case '/profile': {
+    const profilePage = getProfilePage();
     replaceRootContent(profilePage);
     break;
   }
