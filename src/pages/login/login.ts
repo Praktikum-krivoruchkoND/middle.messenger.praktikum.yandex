@@ -42,7 +42,7 @@ class Login extends Block {
   constructor(props: Props) {
     super(
       { ...props, classNames: ['form-wrapper', 'login-form-wrapper'] },
-      { debug: true, withInternalID: true },
+      { debug: false, withInternalID: true },
     );
   }
 
