@@ -74,7 +74,7 @@ const homeLink = new Link({
   href: '/',
 });
 
-class Login extends Block {
+class Profile extends Block {
   constructor(props: Props) {
     super(
       { ...props, classNames: ['form-wrapper', 'profile-form-wrapper'] },
@@ -106,7 +106,7 @@ class Login extends Block {
   }
 }
 
-const loginForm = new Login({
+const profileForm = new Profile({
   events: {
     submit: (e) => {
       e.preventDefault();
@@ -136,5 +136,5 @@ export default (): Element => new Page({
     'profile-container',
   ],
   wrapperTag: 'main',
-  childNode: loginForm,
+  childNode: profileForm,
 }).getContent();
