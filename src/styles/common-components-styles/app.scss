@@ -26,6 +26,7 @@ body {
 
 .button {
   user-select: none;
+  cursor: pointer;
   
   height: toRem(52px);
   width: fit-content;

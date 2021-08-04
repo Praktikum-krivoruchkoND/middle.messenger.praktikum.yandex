@@ -1,7 +1,9 @@
 import parseDOMFromString from '../../utils/parseDOMFromString';
-import compileTemplate from './pages.pug';
+import compileTemplate from './chat.pug';
 
-export default () => {
+import './chat.scss';
+
+export default (): ChildNode => {
   const htmlString = compileTemplate();
   return parseDOMFromString(htmlString);
 };

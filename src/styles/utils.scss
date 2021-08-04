@@ -1,5 +1,7 @@
+@use "sass:math";
+
 @function toRem($size) {
-  @return $size / 16px * 1rem;
+  @return math.div($size, 16px) * 1rem;
 }
 
 ._flex {
@@ -34,4 +36,8 @@
 
 ._min-h-100vh {
   min-height: 100vh;
+}
+
+._m-top-16 {
+  margin-top: toRem(16px);
 }

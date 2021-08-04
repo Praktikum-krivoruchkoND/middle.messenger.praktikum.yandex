@@ -1,0 +1,34 @@
+{
+  "extends": [
+    "xo",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "max-len": [2, 100],
+    "indent": [2, 2, { "SwitchCase": 1 }],
+    "object-curly-spacing": [2, "always"],
+    "arrow-parens": ["warn", "always"],
+    "no-unused-vars": "off",
+    "default-param-last": "off",
+    "capitalized-comments": "off",
+    "@typescript-eslint/no-unused-vars": ["warn"]
+  },
+  "overrides": [
+    {
+      // why you can disable no-undef rule for ts files
+      // https://github.com/eslint/typescript-eslint-parser/issues/437#issuecomment-435526531
+      "files": "**/*.ts",
+      "rules": {
+        "no-undef": 0
+      }
+    }
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  }
+} 

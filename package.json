@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "clean-dist": "rm -rf ./dist",
-    "parcel-dev": "npm run clean-dist && parcel index.html --port 3000",
-    "parcel-build": "npm run clean-dist && parcel build index.html --dist-dir dist && cp _redirects ./dist",
+    "pre-run": "eslint \"**/*.{ts,tsx}\" && tsc --noEmit && rm -rf ./dist",
+    "parcel-dev": "npm run pre-run && parcel index.html --port 3000",
+    "parcel-build": "npm run pre-run && parcel build index.html --dist-dir dist && cp _redirects ./dist",
     "start": "parcel index.html --port 3000",
-    "start-node": "node ./server.js"
+    "start-node": "node ./server.ts"
   },
   "repository": {
     "type": "git",
@@ -23,10 +23,24 @@
   "devDependencies": {
     "@parcel/transformer-pug": "^2.0.0-beta.3.1",
     "@parcel/transformer-sass": "^2.0.0-beta.3.1",
+    "@types/pug": "^2.0.5",
+    "@types/uuid": "^8.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "eslint": "^7.30.0",
+    "eslint-config-xo": "^0.37.0",
     "express": "^4.17.1",
     "parcel": "^2.0.0-beta.3.1",
     "parcel-transformer-pug-precompile": "^1.0.6",
     "pug": "^3.0.2",
-    "sass": "^1.35.1"
+    "sass": "^1.35.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.20.1",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "uuid": "^3.4.0"
   }
 }

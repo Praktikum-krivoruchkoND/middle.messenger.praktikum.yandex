@@ -12,35 +12,50 @@ import './styles/index.scss';
 const { pathname } = window.location;
 
 switch (pathname) {
-  case '/':
+  case '/': {
     const pagesMenuPage = getPagesMenuPage();
     replaceRootContent(pagesMenuPage);
     break;
-  case '/login':
+  }
+
+  case '/login': {
     const loginPage = getLoginPage();
     replaceRootContent(loginPage);
     break;
-  case '/signup':
+  }
+
+  case '/signup': {
     const signUpPage = getSignUpPage();
     replaceRootContent(signUpPage);
     break;
-  case '/chat':
+  }
+
+  case '/chat': {
     const chatPage = getChatPage();
     replaceRootContent(chatPage);
     break;
-  case '/profile':
+  }
+
+  case '/profile': {
     const profilePage = getProfilePage();
     replaceRootContent(profilePage);
     break;
-  case '/404':
+  }
+
+  case '/404': {
     const _404Page = get404Page();
     replaceRootContent(_404Page);
     break;
-  case '/500':
+  }
+
+  case '/500': {
     const _500Page = get500Page();
     replaceRootContent(_500Page);
     break;
-  default:
+  }
+
+  default: {
     replaceRootContent(get404Page());
     break;
+  }
 }

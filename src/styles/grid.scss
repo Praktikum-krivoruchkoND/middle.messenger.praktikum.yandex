@@ -1,3 +1,4 @@
+@use "sass:math";
 // VARiABLES
 // desktop grid
 $grid-desktop-columns: 12;
@@ -19,41 +20,32 @@ $grid-mobile-breakpoint: 620px;
 
 // pixels to % variables
 $desk-grid-width: 100% -
-  (($grid-desktop-sideMargin * 2 / $grid-desktop-breakpoint) * 100%);
+  (math.div($grid-desktop-sideMargin * 2, $grid-desktop-breakpoint) * 100%);
 $tab-grid-width: 100% -
-  (($grid-tablet-sideMargin * 2 / $grid-tablet-breakpoint) * 100%);
+  (math.div($grid-tablet-sideMargin * 2, $grid-tablet-breakpoint) * 100%);
 $mob-grid-width: 100% -
-  (($grid-mobile-sideMargin * 2 / $grid-mobile-breakpoint) * 100%);
+  (math.div($grid-mobile-sideMargin * 2, $grid-mobile-breakpoint) * 100%);
 
 $desk-gutter: (
-  (
-      $grid-desktop-gutter /
-        ($grid-desktop-breakpoint - ($grid-desktop-sideMargin * 2))
-    ) * 100%
+  (math.div($grid-desktop-gutter, $grid-desktop-breakpoint - $grid-desktop-sideMargin * 2)) * 100%
 );
 $tab-gutter: (
-  (
-      $grid-tablet-gutter /
-        ($grid-tablet-breakpoint - ($grid-tablet-sideMargin * 2))
-    ) * 100%
+  (math.div($grid-tablet-gutter, $grid-tablet-breakpoint - $grid-tablet-sideMargin * 2)) * 100%
 );
 $mob-gutter: (
-  (
-      $grid-mobile-gutter /
-        ($grid-mobile-breakpoint - ($grid-mobile-sideMargin * 2))
-    ) * 100%
+  (math.div($grid-mobile-gutter, $grid-mobile-breakpoint - $grid-mobile-sideMargin * 2)) * 100%
 );
 
 // FUNCTIONS AND MiXINS
 @function col-width($i, $columns) {
-  @return 100% / $columns * $i;
+  @return math.div(100%, $columns) * $i;
 }
 
 @mixin col-props($i, $columns, $gutter) {
   box-sizing: border-box;
   width: col-width($i, $columns);
-  padding-left: $gutter/2;
-  padding-right: $gutter/2;
+  padding-left: math.div($gutter, 2);
+  padding-right: math.div($gutter, 2);
 }
 
 @mixin columns-loop($name, $columns, $gutter) {
